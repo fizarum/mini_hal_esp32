@@ -10,7 +10,7 @@ extern "C" {
 #include "driver/ledc.h"
 
 #define MAX_DUTY (8192)
-#define DUTY_PER_PERCENT MAX_DUTY / 100
+#define DUTY_PER_PERCENT (MAX_DUTY / 100)
 
 #define LEDC_MODE LEDC_LOW_SPEED_MODE
 #define LEDC_CHANNEL LEDC_CHANNEL_0
@@ -44,7 +44,7 @@ static ledc_channel_config_t ledc_channel = {
  * @brief Set pwm value in percents
  *
  * @param gpio_pin gpio pin used for pwm
- * @param level [0..100] when set to 0 backlight if off
+ * @param percents [0..100] when set to 0 backlight if off
  */
 static bool pwm_set_percents(const int8_t gpio_pin, uint8_t percents) {
   if (gpio_pin < 0) {
